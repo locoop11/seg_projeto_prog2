@@ -17,10 +17,11 @@ def readTitlesFile(inputFileTitles):
     f.close()
 
     dictTitles = {}
-    listWords = []
+    
     
     for line in lista[1:]:
         listWords = line.strip("\n").split("; ")
+        
         dictTitles[listWords[1]] = int(listWords[0])
         dictTitles[listWords[2]] = int(listWords[0])
     
@@ -31,39 +32,47 @@ def readCandidatesFile(inputFileCandidates, dictTitles):
     
     f = open(inputFileCandidates, "r")
     listC = f.readlines()
-    listCandidates = listC[3:]
+    candidatesFileLine = listC[3:]
     f.close()
     
-    listExamplars = []
-    listTotalWords = []
+    listCandidates = []
+    listExemplars=[]
     
     stopCandidates = "#Exemplars:"
+    stopExemplars = "void"
     
-    for line in listCandidates:
-       
+    
+    for line in candidatesFileLine: 
         if line.strip() == stopCandidates:
             break
-        
         else: 
-            listWordsC = line.replace(";", " ").replace("/n", " ").split();
-            listTotalWords.append(listWordsC)
+            candidateRawData = line.replace("/n", "").split(";").strip()
+            candidateWords = candidateRawData[1:]
             
-            vetorFeatures = []
-            for element in listWordsC:
-                for key, value in dictTitles.items():
-                    
-                    print(value)
-                    if value == element:
-                        vetorFeatures.append(key)
+            candidateVectorFeatures = []
+            for word in candidateWords:
+                feature = int(dictTitles[word])
+                candidateVectorFeatures.append(feature)
                         
-            person = Candidate(listWordsC[0], vetorFeatures, listWords)
-            listExamplars.append(person)
-
-    return listExamplars
-
-def findExamplars(cluster):
-    convertExamplars = []
-    return convertExamplars
+            candidate = Candidate(candidateRawData[0], candidateVectorFeatures, candidateWords)
+            listCandidates.append(candidate)
+    
+    for line in candidatesFileLine :
+        if line.strip() == stopExemplars:
+            break
+        else:
+            exemplarRawData = line.replace("/n", "").split(";").strip()
+            exemplarWords = exemplarRawData[1:]
+            
+            exemplarVectorFeatures = []
+            for word in exemplarWords:
+                feature = int(dictTitles[word])
+                exemplarVectorFeatures.append(feature)
+                        
+            exemplar = Candidate(exemplarRawData[0], exemplarVectorFeatures, exemplarWords)
+            listExemplars.append(exemplar)
+            
+    return (listCandidates, listExemplars)
 
 def writeFile(convertExamples, candidates):
     f = open("C:/Users/dsant/Documents/PROG II/kmeans/projeto2/candidatesNOVOS.txt", "w")
