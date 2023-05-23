@@ -1,3 +1,4 @@
+import random
 from Cluster import *
 
 class kmeans:
