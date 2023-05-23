@@ -1,4 +1,3 @@
-from kmeans import *
 class Example(object):
 
     """Construtor da classe example. Recebe 3 parâmetros: nome do exemplo, lista de carateristicas do exemplo e a label é opcional"""
@@ -35,7 +34,7 @@ class Example(object):
 
     """calculo da distância euclidiana entre o exemplo atual e outro exemplo"""
     def distance(self, other):
-        return self.minkowskiDist(self.features, other.getFeatures(), 2)
+        return Example.minkowskiDist(self.features, other.getFeatures(), 2)
 
         """ Retorna uma representação da string do exemplo, no formato: nomeExemplo:caraterisitcas:label(CasoExista)"""
     def __str__(self):

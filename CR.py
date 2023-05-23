@@ -8,77 +8,20 @@ Created on Mon May 22 15:57:33 2023
 import sys
 from Example import *
 from kmeans import * 
-from Candidate import *
+from FilesHandler import *
 
-#Read Titles File
-def readTitlesFile(inputFileTitles):
-    f = open(inputFileTitles, "r")
-    lista = f.readlines()
-    f.close()
 
-    dictTitles = {}
-    
-    
-    for line in lista[1:]:
-        listWords = line.strip("\n").split("; ")
-        
-        dictTitles[listWords[1]] = int(listWords[0])
-        dictTitles[listWords[2]] = int(listWords[0])
-    
-    return dictTitles
-    
-#Read Candidates File
-def readCandidatesFile(inputFileCandidates, dictTitles):
-    
-    f = open(inputFileCandidates, "r")
-    listC = f.readlines()
-    candidatesFileLine = listC[3:]
-    f.close()
-    
-    listCandidates = []
-    listExemplars=[]
-    
-    stopCandidates = "#Exemplars:"
-    stopExemplars = "void"
-    
-    
-    for line in candidatesFileLine: 
-        if line.strip() == stopCandidates:
-            break
-        else: 
-            candidateRawData = line.replace("/n", "").split(";").strip()
-            candidateWords = candidateRawData[1:]
-            
-            candidateVectorFeatures = []
-            for word in candidateWords:
-                feature = int(dictTitles[word])
-                candidateVectorFeatures.append(feature)
-                        
-            candidate = Candidate(candidateRawData[0], candidateVectorFeatures, candidateWords)
-            listCandidates.append(candidate)
-    
-    for line in candidatesFileLine :
-        if line.strip() == stopExemplars:
-            break
-        else:
-            exemplarRawData = line.replace("/n", "").split(";").strip()
-            exemplarWords = exemplarRawData[1:]
-            
-            exemplarVectorFeatures = []
-            for word in exemplarWords:
-                feature = int(dictTitles[word])
-                exemplarVectorFeatures.append(feature)
-                        
-            exemplar = Candidate(exemplarRawData[0], exemplarVectorFeatures, exemplarWords)
-            listExemplars.append(exemplar)
-            
-    return (listCandidates, listExemplars)
 
-def writeFile(convertExamples, candidates):
-    f = open("C:/Users/dsant/Documents/PROG II/kmeans/projeto2/candidatesNOVOS.txt", "w")
-    for i in range(numberOfClusters):
-            f.write("Cluster" + str(i) + ":")
-            f.write(convertExamples)
+
+
+
+
+
+# def writeFile(convertExamples, candidates):
+#     f = open("C:/Users/dsant/Documents/PROG II/kmeans/projeto2/candidatesNOVOS.txt", "w")
+#     for i in range(numberOfClusters):
+#             f.write("Cluster" + str(i) + ":")
+#             f.write(convertExamples)
         
         
 def main():
@@ -105,10 +48,33 @@ def main():
 
 
 
-# a = readTitlesFile("C:/Users/dsant/Documents/PROG II/kmeans/projeto2/titles.txt")
 
-# b = readCandidatesFile("C:/Users/dsant/Documents/PROG II/kmeans/projeto2/candidates.txt", a)
+titlesDict = FilesHandler.readTitlesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/titles.txt")
 
+(listCandidates, listExamplars) = FilesHandler.readCandidatesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/candidates.txt", titlesDict)
+
+clusters = kmeans.kmeans(listCandidates, 2)
+
+for cluster in clusters:
+    print(cluster)
 # if __name__ == "__main__":
     
     # main()
+    
+    
+def testFunction1() :
+    
+    cand1 = Example('exemplo1', [1, 2, 2, 0, 5, 6, 7, 1, 9, 10])
+    cand2 = Example('exemplo2', [1, 2, 3, 0, 0, 6, 7, 8, 9, 9])
+    cand3 = Example('exemplo3', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    cand4 = Example('exemplo4', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    cand5 = Example('exemplo5', [1, 2, 1, 4, 5, 6, 6, 8, 9, 8])
+
+    candidates = [cand1, cand2, cand3, cand4, cand5]
+
+    clusters = kmeans.kmeans(candidates, 3)
+
+    for cluster in clusters:
+        print(cluster)
+
+    exit()
