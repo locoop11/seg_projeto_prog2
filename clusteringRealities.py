@@ -1,48 +1,80 @@
-## Read input arguments from program and validate K against the number of exemplars in the input file if any
+# -*- coding: utf-8 x-*-
+"""
+Created on Mon May 15 15:57:33 2023
+
+@author: dsant and hsilva
+"""
+
+import sys
+from Example import *
+from kmeans import * 
+from FilesHandler import *
 
 
-###
-## Read input file with candidates and convert each candidate to a vector like structure
-## Function: readCandidatesFile
-##
-## Reponsilibilites:
-## Returns: An array of candidates each candidate is a vector 
-#           like structure in which each element is a feature and features are the converted number 
-#           to the titles
-#
-#  Example of a return value: [Candidate1, Candidate2, Candidate3, ...]
-#            Candidate1 : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#            Canddate2 : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-###
-
-(listCandidates, listExemplars) = readCandidatesFile(inputFileCandidates, inputFileTitles)
 
 
-##
-## Create the appropriate groups of candidates based on the number of clusters we need.
-## Groups of cluster are by requirements defined in the K input argument or in the number of
-## exemplars defined in the input file.
-##
-## Function: createGroupClusters
-## Responsibilities: Create the appropriate groups of candidates based on the number of clusters we need.
-## Returns: An array of groups of candidates
-## Example of a return value: [Group1, Group2, Group3, ...]
-##           Group1 : [Candidate1, Candidate2, Candidate3, ...]
-##           Group2 : [Candidate1, Candidate2, Candidate3, ...]
-##           Group3 : [Candidate1, Candidate2, Candidate3, ...]
-
-groupsDict = createGroupClusters(candidatesVector, K)
-
-##
-## Compute the centroid of each group
-## Having all the candidates assign to a cluster compute the candidate that is the centroid of the cluster
-##
-## Function: computeCentroid
-## Responsibilities: Compute the centroid of each group
-## Returns: An array of groups in which the first element of each group is its centroid
-## Example of a return value: [Group1, Group2, Group3, ...]
-##         Group1 : [candidate1, candidate2, candidate3, ...]
 
 
-## Write the array of group centroids to the output file
 
+
+# def writeFile(convertExamples, candidates):
+#     f = open("C:/Users/dsant/Documents/PROG II/kmeans/projeto2/candidatesNOVOS.txt", "w")
+#     for i in range(numberOfClusters):
+#             f.write("Cluster" + str(i) + ":")
+#             f.write(convertExamples)
+        
+        
+def main():
+    if len(sys.argv) < 4:
+        print("Usage: python clusteringRealitiesTEST.py <k> <titles_file> <candidates_file>")
+        return
+    
+    numberOfClusters = int(sys.argv[1])
+    inputFileTitles = sys.argv[2]
+    inputeFileCandidates = sys.argv[3]
+
+#     titles = 
+#     candidadates = 
+    dict = readTitlesFile(inputFileTitles)
+    listExamples = readCandidatesFile(inputFileCandidates, dictTitles)
+    
+    listExamplars, dict = findExamplars(clusters)
+    if len(listExamplars == 0): 
+        cluster = trykmeans(listExamplars, k, 20, True)
+    else:
+        cluster = kmeans(listExamplars, 3, '', True)
+    
+    writeFile(convertExamples, candidates)
+
+
+
+
+titlesDict = FilesHandler.readTitlesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/titles.txt")
+
+(listCandidates, listExamplars) = FilesHandler.readCandidatesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/candidates.txt", titlesDict)
+
+clusters = kmeans.kmeans(listCandidates, 2)
+
+for cluster in clusters:
+    print(cluster)
+# if __name__ == "__main__":
+    
+    # main()
+    
+    
+def testFunction1() :
+    
+    cand1 = Example('exemplo1', [1, 2, 2, 0, 5, 6, 7, 1, 9, 10])
+    cand2 = Example('exemplo2', [1, 2, 3, 0, 0, 6, 7, 8, 9, 9])
+    cand3 = Example('exemplo3', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    cand4 = Example('exemplo4', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    cand5 = Example('exemplo5', [1, 2, 1, 4, 5, 6, 6, 8, 9, 8])
+
+    candidates = [cand1, cand2, cand3, cand4, cand5]
+
+    clusters = kmeans.kmeans(candidates, 3)
+
+    for cluster in clusters:
+        print(cluster)
+
+    exit()
