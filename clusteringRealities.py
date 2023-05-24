@@ -6,9 +6,9 @@ Created on Mon May 15 15:57:33 2023
 """
 
 import sys
-from Example import *
-from kmeans import * 
-from FilesHandler import *
+from modules.Example import *
+from modules.kmeans import * 
+from modules.FilesHandler import *
 
 
 
