@@ -1,6 +1,9 @@
-# seg_projeto_prog2: clusteringRealitiesProject
-
-Repositorio para o codigo do segundo projecto de programacao 2 do 1 ano
+# Objetivo
+Com uma finalidade pedagógica, usando Python 3, neste projeto vai implementar o software clusteringRealities. É um software que permite obter o agrupamento de objetos de acordo com as suas características apresentadas num vetor.
+No contexto das atividades da nossa disciplina, uma outra finalidade pedagógica encontra-se no desafio de se desenvolver software a partir de uma especificação muito mais difusa e aberta do que aquelas que foram recebidas como pontos de partida em projetos anteriores pelos alunos da disciplina.
+Ainda outra finalidade pedagógica, consiste em os alunos ganharem prática em reutilizarem e adaptarem código pré-existente. Na resolução deste projeto, é obrigatório recorrer a e adaptar o código disponibilizado no manual desta unidade curricular para a tarefa de agrupamento. Resoluções que recorram a outros módulos e/ou respetivas funções para realizarem esta tarefa, como por exemplo, scikit-learn, SciPy, Pyclustering, entre possivelmente outros, recebem zero valores de classificação.# Funcionalidade
+O seu programa recebe uma listagem de candidatos. Recebe ainda uma lista de títulos nobiliárquicos e tipos de celebridade e respetivos níveis hierárquicos quantitativos.
+O seu programa entrega uma lista de grupos de candidatos e respetivos candidatos exemplares.
 
 # Executar o software
 O software é executado através da seguinte instrução na linha de comandos:
