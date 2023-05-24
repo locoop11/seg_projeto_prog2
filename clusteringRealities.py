@@ -6,9 +6,9 @@ Created on Mon May 15 15:57:33 2023
 """
 
 import sys
-from Example import *
-from kmeans import * 
-from FilesHandler import *
+from modules.Example import *
+from modules.kmeans import * 
+from modules.FilesHandler import *
 
 
 
@@ -49,9 +49,9 @@ def main():
 
 
 
-titlesDict = FilesHandler.readTitlesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/titles.txt")
+titlesDict = FilesHandler.readTitlesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/files/titles.txt")
 
-(listCandidates, listExamplars) = FilesHandler.readCandidatesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/candidates.txt", titlesDict)
+(listCandidates, listExamplars) = FilesHandler.readCandidatesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/files/candidates.txt", titlesDict)
 if len(listExamplars) == 0:
     clusters = kmeans.kmeans(listCandidates, 2)
 else:

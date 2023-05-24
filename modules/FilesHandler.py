@@ -1,4 +1,4 @@
-from Candidate import *
+from modules.Candidate import *
 
 class FilesHandler:
     def writeOutputList(outputList, outputFile):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Example import Example 
+from modules.Example import Example 
 
 class Cluster(object):
 

@@ -1,5 +1,5 @@
 import random
-from Cluster import *
+from modules.Cluster import *
 
 class kmeans:
     

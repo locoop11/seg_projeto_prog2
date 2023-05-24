@@ -4,7 +4,7 @@ Created on Thu May  4 11:13:31 2023
 
 @author: dsant
 """
-from Example import *
+from modules.Example import *
 
 class Candidate(Example):
     def __init__(self, name, features, listWords):
