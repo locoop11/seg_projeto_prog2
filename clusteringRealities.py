@@ -6,10 +6,9 @@ Created on Mon May 15 15:57:33 2023
 """
 
 import sys
-from modules.Example import *
-from modules.kmeans import * 
-from modules.FilesHandler import *
-
+from Example import *
+from kmeans import * 
+from FilesHandler import *
 
 
 
@@ -69,7 +68,7 @@ for cluster in clusters:
             clusterMember = exampler
     outputList.append((clusterMember, cluster))
 
-FilesHandler.writeOutputList(outputList, "/Users/gino/Code/Hugo/seg_projeto_prog2/output.txt", listCandidates)
+FilesHandler.writeOutputList(outputList, "/Users/gino/Code/Hugo/seg_projeto_prog2/output.txt")
 
 
     
