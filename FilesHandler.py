@@ -1,6 +1,10 @@
 from Candidate import *
 
 class FilesHandler:
+    def writeOutputList(outputList, outputFile):
+        return
+
+
     #Read Titles File
     def readTitlesFile(inputFileTitles):
         f = open(inputFileTitles, "r")

@@ -33,18 +33,18 @@ def main():
     inputFileTitles = sys.argv[2]
     inputeFileCandidates = sys.argv[3]
 
-#     titles = 
-#     candidadates = 
-    dict = readTitlesFile(inputFileTitles)
-    listExamples = readCandidatesFile(inputFileCandidates, dictTitles)
+# #     titles = 
+# #     candidadates = 
+#     dict = FilesHandler.readTitlesFile(inputFileTitles)
+#     listExamples = FilesHandler.readCandidatesFile(inputFileCandidates, dictTitles)
     
-    listExamplars, dict = findExamplars(clusters)
-    if len(listExamplars == 0): 
-        cluster = trykmeans(listExamplars, k, 20, True)
-    else:
-        cluster = kmeans(listExamplars, 3, '', True)
+#     listExamplars, dict = findExamplars(clusters)
+#     if len(listExamplars == 0): 
+#         cluster = trykmeans(listExamplars, k, 20, True)
+#     else:
+#         cluster = kmeans(listExamplars, 3, '', True)
     
-    writeFile(convertExamples, candidates)
+#     writeFile(convertExamples, candidates)
 
 
 
@@ -52,11 +52,32 @@ def main():
 titlesDict = FilesHandler.readTitlesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/titles.txt")
 
 (listCandidates, listExamplars) = FilesHandler.readCandidatesFile("/Users/gino/Code/Hugo/seg_projeto_prog2/candidates.txt", titlesDict)
+if len(listExamplars) == 0:
+    clusters = kmeans.kmeans(listCandidates, 2)
+else:
+    clusters = kmeans.kmeans(listCandidates, 2, False, listExamplars)
 
-clusters = kmeans.kmeans(listCandidates, 2)
-
+outputList = []
 for cluster in clusters:
-    print(cluster)
+    minDist = 10000
+    clusterMember = None
+    for exampler in cluster.members() :
+        thisDistance = exampler.distance(cluster.getCentroid())
+        if( thisDistance < minDist):
+            minDist = thisDistance
+            clusterMember = exampler
+    outputList.append((clusterMember, cluster))
+
+FilesHandler.writeOutputList(outputList, "/Users/gino/Code/Hugo/seg_projeto_prog2/output.txt")
+    
+            
+    
+
+
+
+
+
+
 # if __name__ == "__main__":
     
     # main()

@@ -4,9 +4,12 @@ from Cluster import *
 class kmeans:
     
     """Recebe uma lista de exemplos, nº de clusters """
-    def kmeans(examples, k, verbose = False):
+    def kmeans(examples, k, verbose = False, init = None):
          #Get k randomly chosen initial centroids, create cluster for each
-         initialCentroids = random.sample(examples, k)
+         if( init == None):
+            initialCentroids = random.sample(examples, k)
+         else:
+             initialCentroids = init
          clusters = []
          for e in initialCentroids:
              clusters.append(Cluster([e]))
@@ -60,14 +63,14 @@ class kmeans:
          """Calls kmeans numTrials times and returns the result with the
          lowest dissimilarity"""
          best = kmeans(examples, numClusters, verbose)
-         minDissimilarity = dissimilarity(best)
+         minDissimilarity = kmeans.dissimilarity(best)
          trial = 1
          while trial < numTrials:
              try:
                  clusters = kmeans(examples, numClusters, verbose)
              except ValueError:
                  continue #If failed, try again
-             currDissimilarity = dissimilarity(clusters)
+             currDissimilarity = kmeans.dissimilarity(clusters)
              if currDissimilarity < minDissimilarity:
                  best = clusters
                  minDissimilarity = currDissimilarity
