@@ -85,19 +85,19 @@ FilesHandler.writeOutputList(outputList, "/Users/gino/Code/Hugo/seg_projeto_prog
     # main()
     
     
-def testFunction1() :
+# def testFunction1() :
     
-    cand1 = Example('exemplo1', [1, 2, 2, 0, 5, 6, 7, 1, 9, 10])
-    cand2 = Example('exemplo2', [1, 2, 3, 0, 0, 6, 7, 8, 9, 9])
-    cand3 = Example('exemplo3', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    cand4 = Example('exemplo4', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    cand5 = Example('exemplo5', [1, 2, 1, 4, 5, 6, 6, 8, 9, 8])
+#     cand1 = Example('exemplo1', [1, 2, 2, 0, 5, 6, 7, 1, 9, 10])
+#     cand2 = Example('exemplo2', [1, 2, 3, 0, 0, 6, 7, 8, 9, 9])
+#     cand3 = Example('exemplo3', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+#     cand4 = Example('exemplo4', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+#     cand5 = Example('exemplo5', [1, 2, 1, 4, 5, 6, 6, 8, 9, 8])
 
-    candidates = [cand1, cand2, cand3, cand4, cand5]
+#     candidates = [cand1, cand2, cand3, cand4, cand5]
 
-    clusters = kmeans.kmeans(candidates, 3)
+#     clusters = kmeans.kmeans(candidates, 3)
 
-    for cluster in clusters:
-        print(cluster)
+#     for cluster in clusters:
+#         print(cluster)
 
-    exit()
+#     exit()

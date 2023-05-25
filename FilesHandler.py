@@ -3,26 +3,43 @@ from Candidate import *
 class FilesHandler:
     def writeOutputList(outputList, outputFile):
 
-        #with open(outputFile, 'w') as file:
-            for i in outputList :
-                
+        #clusterMember e finalExemplar are two perfect form str to output
+            finalExemplarsClusters = []
+            for i in outputList :    
                 exemplar = i[0]
-                finalExemplar = str(exemplar.getName()) + ' : ' + str(exemplar.getListWords())
-               
+                finalExemplar = ""
+                finalExemplar += exemplar.getName() 
+                for title in exemplar.getListWords():
+                    finalExemplar += '; ' + title
                 cluster = i[1]
-                finalCluster = []
+                clusterMembers = ""
                 for member in cluster.members() :
-                    clusterMember = str(member.getName()) + ' : ' + str(member.getListWords())
-                    finalCluster.append(clusterMember)
-                finalCluster.remove(finalExemplar)
-                
-                
-                print(finalExemplar)
-                print(finalCluster)
-            with outputFile as file :
-                file.write("#exemplar 1:\n", )
+                    if member.getName() != exemplar.getName():
+                        clusterMembers += str(member.getName())
+                        for title in member.getListWords():
+                            clusterMembers += "; " + title
+                        clusterMembers += "\n"
+                finalExemplarsClusters.append((finalExemplar, clusterMembers))
+            print(finalExemplarsClusters)
 
-                
+            #with outputFile as file :
+            for e in range(len(finalExemplarsClusters)):
+                print("#exemplar", e+1 ,":\n", finalExemplarsClusters[e][0])
+                print("#cluster", e+1  ,":\n", finalExemplarsClusters[e][1])
+                     #file.write("#exemplar", e+1 ,":\n", finalExemplarsClusters[e][0])
+                     #file.write("#cluster", e+1, ":\n", finalExemplarsClusters[e][1])
+
+
+            #     print(finalExemplar)
+            #     print(clusterMembers)
+
+                    
+
+
+            
+            
+
+             
 
             
         
