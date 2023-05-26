@@ -36,6 +36,13 @@ Note:
 """
             
 def main():
+    """
+        Main function of the script.
+        
+        Assumes: Arguments are valid. 
+        On the 1 parameter, k is an integer greater than 0. 
+        On the 2 and 3 parameters, the files exist and are not empty.
+    """
     if len(sys.argv) < 4:
         print("Error: The number of arguments is not valid")
         print("Usage: python clusteringRealities.py <k> <titles_file> <candidates_file>")
