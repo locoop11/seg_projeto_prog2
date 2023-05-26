@@ -21,6 +21,56 @@ Se no ficheiro de input inputFile.txt forem indicados os centróides iniciais na
  - A seção Exemplars no ficheiro de input pode conter ou a palavra designada void, ou uma sublista dos candidatos, as quais têm de ser considerados como os únicos centróides iniciais.
  - No primeiro caso ,os centróides iniciais devem escolhidos aleatoriamente.
 
+# Entradas do programa
+O programa recebe dois ficheiros com uma estrutura interna para arrumação de informação similar à dos seguintes exemplos fragmentários:
+candidates.txt
+````
+#Name and features:
+#Name; father's title; mother's; paternal grandfather's; paternal grandmother's; maternal grandfather's; maternal grandmother's #Candidates:
+Francisquinha Capuleto; duque; condessa; arquiduque; condessa; visconde; viscondessa
+Esmeraldinha Montego; arquiduque; tiktokStar; duque; duquesa; arquiduque; baronesa
+Armandinho de Alfama; youtubeInfluencer; tiktokStar; plebeu; plebeia; plebeu; plebeia
+...
+Stephanie Grimaldi; príncipe; plebeia; príncipe; princesa; plebeu; plebeia
+#Exemplars:
+...
+```
+titles.txt
+```
+#degree; title name masculine; feminine
+14; imperador; imperatriz
+13; rei; rainha
+12; regente; regente
+11; príncipe; princesa
+10; tiktokStar; tiktokStar
+9; arquiduque; arquiduquesa
+8; duque; duquesa
+7; youtubeInfluencer; youtubeInfluencer
+6; conde; condessa
+5; visconde; viscondessa
+4; barão; baronesa
+3; vencedorFestivalRTP; vencedoraFestivalRTP 2; apresentadorFamaShow; apresentadoraFamaShow 1; escudeiro; escudeira
+0; plebeu; plebeia
+```
+# Saída do programa
+O programa produz um ficheiro de output com uma estrutura interna similar ao exemplo abaixo, com uma listagem dos grupos de candidatos formados, em que o candidato exemplar i é o centróide do grupo i.
+
+candidates.txt
+````
+#exemplar 1:
+Jane Windsor; duque; princesa; arquiduque; arquiduquesa; conde; viscondessa
+#cluster 1:
+Francisquinha Capuleto; duque; condessa; arquiduque; condessa; visconde; viscondessa
+Lili Lambrusca; apresentadorFamaShow; condessa; arquiduque; condessa; visconde; viscondessa
+#exemplar 2:
+Esmeraldinha Montego; arquiduque; tiktokStar; duque; duquesa; arquiduque; baronesa
+#cluster 2:
+...
+#exemplar3:
+Stephanie Grimaldi; príncipe; plebeia; príncipe; princesa; plebeu; plebeia
+...
+```
+
 # Conjunto de testes
 Para exercitar os princípios e métodos ensinados em Programação 1 sobre testar e depurar, os estudantes têm de construir o seu próprio conjunto de testes e usá-lo para testar e depurar a resolução que desenvolverem. Os ficheiros com esses testes utilizados tem de ser submetido para classificação juntamente com os demais ficheiros de código desenvolvido pelos estudantes.
 De modo diferente do que aconteceu nos projetos anteriores, o conjunto de testes a ser usado pelos docentes na classificação das resoluções deste projeto pelos estudantes não serão por isso divulgados.
