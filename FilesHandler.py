@@ -5,34 +5,36 @@ class FilesHandler:
     def writeOutputList(outputList, outputFile):
 
         #clusterMember e finalExemplar are two perfect form str to output
-            finalExemplarsClusters = []
-            for i in outputList :    
-                exemplar = i[0]
-                finalExemplar = ""
-                finalExemplar += exemplar.getName() 
-                for title in exemplar.getListWords():
-                    finalExemplar += '; ' + title
-                cluster = i[1]
-                clusterMembers = ""
-                for member in cluster.members() :
-                    if member.getName() != exemplar.getName():
-                        clusterMembers += str(member.getName())
-                        for title in member.getListWords():
-                            clusterMembers += "; " + title
-                        clusterMembers += "\n"
-                finalExemplarsClusters.append((finalExemplar, clusterMembers))
-            print(finalExemplarsClusters)
+        finalExemplarsClusters = []
+        for i in outputList :    
+            exemplar = i[0]
+            finalExemplar = ""
+            finalExemplar += exemplar.getName() 
+            for title in exemplar.getListWords():
+                finalExemplar += '; ' + title
+            cluster = i[1]
+            clusterMembers = ""
+            for member in cluster.members() :
+                if member.getName() != exemplar.getName():
+                    clusterMembers += str(member.getName())
+                    for title in member.getListWords():
+                        clusterMembers += "; " + title
+                    clusterMembers += "\n"
+            finalExemplarsClusters.append((finalExemplar, clusterMembers))
+        print(finalExemplarsClusters)
 
+        with open(outputFile, 'w') as file:
             #with outputFile as file :
             for e in range(len(finalExemplarsClusters)):
-                print("#exemplar", e+1 ,":\n", finalExemplarsClusters[e][0])
-                print("#cluster", e+1  ,":\n", finalExemplarsClusters[e][1])
-                     #file.write("#exemplar", e+1 ,":\n", finalExemplarsClusters[e][0])
-                     #file.write("#cluster", e+1, ":\n", finalExemplarsClusters[e][1])
+                print("#exemplar ", e+1, ":\n", finalExemplarsClusters[e][0])
+                lineStr = "#exemplar " + str(e+1) + ":\n" + finalExemplarsClusters[e][0]
+                print(lineStr)
+                file.writelines(lineStr)
+                nextLine = "#cluster " + str(e+1)  + ":\n" + finalExemplarsClusters[e][1]
+                print(nextLine)
+                file.writelines(nextLine)
+            file.close()
 
-
-            #     print(finalExemplar)
-            #     print(clusterMembers)
 
     #Read Titles File
     def readTitlesFile(inputFileTitles):

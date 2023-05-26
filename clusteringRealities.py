@@ -10,7 +10,7 @@ from Example import *
 from kmeans import * 
 from FilesHandler import *
  
-        
+            
 def main():
     if len(sys.argv) < 4:
         print("Usage: python clusteringRealities.py <k> <titles_file> <candidates_file>")
@@ -19,6 +19,9 @@ def main():
     numberOfClusters = int(sys.argv[1])
     inputFileTitles = sys.argv[2]
     inputFileCandidates = sys.argv[3]
+    print("....................", inputFileCandidates)
+    print("....................", inputFileTitles)
+    print("....................", numberOfClusters)
 
     projectDirectory = os.getcwd()
 
@@ -32,3 +35,8 @@ def main():
     outputList = FilesHandler.performClustering(listCandidates, listExamplars)
     
     FilesHandler.writeOutputList(outputList, "output.txt")
+    
+    
+if __name__ == '__main__':
+    main()
+    
