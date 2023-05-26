@@ -36,6 +36,13 @@ Note:
 """
             
 def main():
+    """
+        Main function of the script.
+        
+        Assumes: Arguments are valid. 
+        On the 1 parameter, k is an integer greater than 0. 
+        On the 2 and 3 parameters, the files exist and are not empty.
+    """
     if len(sys.argv) < 4:
         print("Error: The number of arguments is not valid")
         print("Usage: python clusteringRealities.py <k> <titles_file> <candidates_file>")
@@ -73,6 +80,18 @@ def main():
     processFiles(inputFileTitles, inputFileCandidates, numberOfClusters)
 
 def processFiles(inputFileTitles, inputFileCandidates, numberOfClusters):
+    """ 
+        Processes files to extract data and perform clustering.
+
+        Args:
+            inputFileTitles (str): Path to the file containing titles.
+            inputFileCandidates (str): Path to the file containing candidates.
+            numberOfClusters (int): Number of clusters to create.
+
+        Returns:
+            The list of clusters and their members
+        
+    """
     # print("Processing files...")
     # print("Number of clusters: " + str(numberOfClusters))
     # print("Titles file: " + inputFileTitles)
