@@ -1,4 +1,5 @@
 from Candidate import *
+from kmeans import *
 
 class FilesHandler:
     def writeOutputList(outputList, outputFile):
@@ -32,42 +33,6 @@ class FilesHandler:
 
             #     print(finalExemplar)
             #     print(clusterMembers)
-
-                    
-
-
-            
-            
-
-             
-
-            
-        
-                
-                
-                    
-
-
-
-
-
-
-
-
-
-
-        # with open(inputeFileCandidates, 'w') as file:
-        # for i, exemplar in enumerate(listExamples):
-        #     file.write("#exemplar {}:\n".format(i+1))
-        #     file.write("{};{}\n".format(exemplar.getName(), ";".join(exemplar.getListWords())))
-        #     file.write("#cluster {}:\n".format(i+1))
-        # for member in clusters[i].members():
-        #     file.write("{};{}\n".format(member.getName(), ";".join(member.getListWords())))
-        #     file.write("\n")
-        #     f.writelines()
-        #     f.close()
-        # return
-
 
     #Read Titles File
     def readTitlesFile(inputFileTitles):
@@ -131,3 +96,23 @@ class FilesHandler:
                 listExemplars.append(exemplar)
                     
         return (listCandidates, listExemplars)
+
+
+    def performClustering(listCandidates, listExamplars):
+        if len(listExamplars) == 0:
+            clusters = kmeans.kmeans(listCandidates, 2)
+        else:
+            clusters = kmeans.kmeans(listCandidates, 2, False, listExamplars)
+
+        outputList = []
+        for cluster in clusters:
+            minDist = 10000
+            clusterMember = None
+            for exampler in cluster.members():
+                thisDistance = exampler.distance(cluster.getCentroid())
+                if thisDistance < minDist:
+                    minDist = thisDistance
+                    clusterMember = exampler
+            outputList.append((clusterMember, cluster))
+
+        return outputList
