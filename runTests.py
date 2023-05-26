@@ -44,7 +44,7 @@ class Tests :
         print("... Test Failed")
     
     def testKBiggerThanNumberOfCandidates():
-        Tests.printTestName ("testNegativeK", "Testing negative K")
+        Tests.printTestName ("testKBiggerThanNumberOfCandidates", "Testing K bigger than number of candidates")
         testFile = "./files/candidates.txt"
         try:
             processFiles(Tests.sampleTitlesFile, testFile, 200)  
@@ -54,7 +54,7 @@ class Tests :
         print("... Test Failed")
     
     def testKZero():
-        Tests.printTestName ("testNegativeK", "Testing negative K")
+        Tests.printTestName ("testKZero", "Testing K = 0")
         testFile = "./files/candidates.txt"
         try:
             processFiles(Tests.sampleTitlesFile, testFile, 0)  
@@ -75,11 +75,18 @@ class Tests :
     
     def testCandidatesHavingTheSameDistanceFrom2Centroids(): 
         Tests.printTestName ("testCandidatesHavingTheSameDistanceFrom2Centroids", "Testing candidates having the same distance from 2 centroids")
+        
         return print("... Success")
     
     def testCandidatesHavingAnUnknownExemplar():
-        Tests.printTestName ("testCandidatesHavingAnUnknownExemplar", "Testing candidates having an unknown exemplar")
-        return print("... Success")
+        Tests.printTestName ("testCandidatesHavingAnUnknownExemplar", "Testing candidates with less titles than expected")
+        testFile = "./files/test-CandidatesHavingAnUnknownExemplar.txt"
+        try:
+            processFiles(Tests.sampleTitlesFile, testFile, 2)  
+        except Exception as e:
+            print("... Success: " + e.args[0])
+            return
+        print("... Test Failed")
     
     def printTestName (testName, testDescription = ""):
         print ("Executing Test: " + testName + " - " + testDescription)
