@@ -16,12 +16,20 @@ def main():
         print("Usage: python clusteringRealities.py <k> <titles_file> <candidates_file>")
         return
     
-    numberOfClusters = int(sys.argv[1])
+    numberOfClusters = int(sys.argv[1])        
     inputFileTitles = sys.argv[2]
     inputFileCandidates = sys.argv[3]
-    print("....................", inputFileCandidates)
-    print("....................", inputFileTitles)
-    print("....................", numberOfClusters)
+
+    processFiles(inputFileTitles, inputFileCandidates, numberOfClusters)
+
+def processFiles(inputFileTitles, inputFileCandidates, numberOfClusters):
+    # print("Processing files...")
+    # print("Number of clusters: " + str(numberOfClusters))
+    # print("Titles file: " + inputFileTitles)
+    # print("Candidates file: " + inputFileCandidates)
+    
+    if( numberOfClusters < 1):
+        raise Exception("k must be greater than 0")
 
     projectDirectory = os.getcwd()
 
@@ -29,13 +37,12 @@ def main():
     candidatesFilePath = os.path.join(projectDirectory, inputFileCandidates)
 
     titlesDict = FilesHandler.readTitlesFile(titlesFilePath)
-    print("....................", titlesDict)
     (listCandidates, listExamplars) = FilesHandler.readCandidatesFile(candidatesFilePath, titlesDict)
 
-    outputList = FilesHandler.performClustering(listCandidates, listExamplars)
+    outputList = FilesHandler.performClustering(listCandidates, listExamplars, numberOfClusters)
     
     FilesHandler.writeOutputList(outputList, "output.txt")
-    
+    return outputList
     
 if __name__ == '__main__':
     main()

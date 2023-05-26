@@ -21,17 +21,13 @@ class FilesHandler:
                         clusterMembers += "; " + title
                     clusterMembers += "\n"
             finalExemplarsClusters.append((finalExemplar, clusterMembers))
-        print(finalExemplarsClusters)
 
         with open(outputFile, 'w') as file:
             #with outputFile as file :
             for e in range(len(finalExemplarsClusters)):
-                print("#exemplar ", e+1, ":\n", finalExemplarsClusters[e][0])
                 lineStr = "#exemplar " + str(e+1) + ":\n" + finalExemplarsClusters[e][0]
-                print(lineStr)
                 file.writelines(lineStr)
                 nextLine = "#cluster " + str(e+1)  + ":\n" + finalExemplarsClusters[e][1]
-                print(nextLine)
                 file.writelines(nextLine)
             file.close()
 
@@ -100,11 +96,15 @@ class FilesHandler:
         return (listCandidates, listExemplars)
 
 
-    def performClustering(listCandidates, listExamplars):
-        if len(listExamplars) == 0:
-            clusters = kmeans.kmeans(listCandidates, 2)
-        else:
-            clusters = kmeans.kmeans(listCandidates, 2, False, listExamplars)
+    def performClustering(listCandidates, listExamplars, numClusters):
+        clusters = []
+        try :            
+            if len(listExamplars) == 0:
+                clusters = kmeans.kmeans(listCandidates, numClusters)
+            else:
+                clusters = kmeans.kmeans(listCandidates, numClusters, False, listExamplars)
+        except Exception as e:
+            raise Exception("Cannot perform clustering with " + str(numClusters) + " clusters")
 
         outputList = []
         for cluster in clusters:

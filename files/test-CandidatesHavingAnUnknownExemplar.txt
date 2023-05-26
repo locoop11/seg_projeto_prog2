@@ -1,0 +1,9 @@
+#Name and features:
+#Name; father's title; mother's; paternal grandfather's; paternal grandmother's; maternal grandfather's; maternal grandmother's
+#Candidates:
+Francisquinha Capuleto; duque; condessa; arquiduque; condessa; visconde; viscondessa
+Esmeraldinha Montego; arquiduque; tiktokStar; duque; duquesa; arquiduque; baronesa
+Armandinho de Alfama; youtubeInfluencer; tiktokStar; plebeu; plebeia; plebeu; plebeia
+Stephanie Grimaldi; príncipe; plebeia; príncipe; princesa; plebeu; plebeia
+#Exemplars:
+Donald Trump; príncipe; plebeia; príncipe; princesa; plebeu; plebeia
