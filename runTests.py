@@ -35,21 +35,43 @@ class Tests :
     
     def testNegativeK():
         Tests.printTestName ("testNegativeK", "Testing negative K")
-        testFile = "./files/test-NegativeK.txt"
-        return print("... Success")
+        testFile = "./files/candidates.txt"
+        try:
+            processFiles(Tests.sampleTitlesFile, testFile, -2)  
+        except Exception as e:
+            print("... Success: " + e.args[0])
+            return
+        print("... Test Failed")
     
     def testKBiggerThanNumberOfCandidates():
-        Tests.printTestName ("testKBiggerThanNumberOfCandidates", "Testing K bigger than number of candidates")
-        
-        return print("... Success")
+        Tests.printTestName ("testNegativeK", "Testing negative K")
+        testFile = "./files/candidates.txt"
+        try:
+            processFiles(Tests.sampleTitlesFile, testFile, 200)  
+        except Exception as e:
+            print("... Success: " + e.args[0])
+            return
+        print("... Test Failed")
     
     def testKZero():
-        Tests.printTestName ("testKZero", "Testing K zero")
-        return print("... Success")
+        Tests.printTestName ("testNegativeK", "Testing negative K")
+        testFile = "./files/candidates.txt"
+        try:
+            processFiles(Tests.sampleTitlesFile, testFile, 0)  
+        except Exception as e:
+            print("... Success: " + e.args[0])
+            return
+        print("... Test Failed")
     
     def testCandidatesWithLessTitlesThanExpected():
         Tests.printTestName ("testCandidatesWithLessTitlesThanExpected", "Testing candidates with less titles than expected")
-        return print("... Success")
+        testFile = "./files/test-CandidatesWithLessTitlesThanExpected.txt"
+        try:
+            processFiles(Tests.sampleTitlesFile, testFile, 2)  
+        except Exception as e:
+            print("... Success: " + e.args[0])
+            return
+        print("... Test Failed")
     
     def testCandidatesHavingTheSameDistanceFrom2Centroids(): 
         Tests.printTestName ("testCandidatesHavingTheSameDistanceFrom2Centroids", "Testing candidates having the same distance from 2 centroids")

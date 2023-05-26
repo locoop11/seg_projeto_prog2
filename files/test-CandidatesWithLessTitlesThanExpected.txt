@@ -4,6 +4,6 @@
 Francisquinha Capuleto; duque; condessa; arquiduque; condessa; visconde; viscondessa
 Esmeraldinha Montego; arquiduque; tiktokStar; duque; duquesa; arquiduque; baronesa
 Armandinho de Alfama; youtubeInfluencer; tiktokStar; plebeu; plebeia; plebeu; plebeia
-Stephanie Grimaldi; príncipe; plebeia; príncipe; princesa; plebeu; plebeia
+Stephanie Grimaldi; plebeu; plebeia
 #Exemplars:
 Donald Trump; príncipe; plebeia; príncipe; princesa; plebeu; plebeia
