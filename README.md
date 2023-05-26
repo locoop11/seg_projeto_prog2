@@ -24,7 +24,7 @@ Se no ficheiro de input inputFile.txt forem indicados os centróides iniciais na
 # Entradas do programa
 O programa recebe dois ficheiros com uma estrutura interna para arrumação de informação similar à dos seguintes exemplos fragmentários:
 candidates.txt
-````
+```
 #Name and features:
 #Name; father's title; mother's; paternal grandfather's; paternal grandmother's; maternal grandfather's; maternal grandmother's #Candidates:
 Francisquinha Capuleto; duque; condessa; arquiduque; condessa; visconde; viscondessa
@@ -56,7 +56,7 @@ titles.txt
 O programa produz um ficheiro de output com uma estrutura interna similar ao exemplo abaixo, com uma listagem dos grupos de candidatos formados, em que o candidato exemplar i é o centróide do grupo i.
 
 candidates.txt
-````
+```
 #exemplar 1:
 Jane Windsor; duque; princesa; arquiduque; arquiduquesa; conde; viscondessa
 #cluster 1:
