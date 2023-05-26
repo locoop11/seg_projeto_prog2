@@ -1,9 +1,8 @@
-# -*- coding: utf-8 x-*-
-"""
-Created on Mon May 15 15:57:33 2023
+# 2022-2023 Programacao 2 LTI
+# Grupo 027
+# 54961 Daniela Rodrigues
+# 60253 Hugo Silva
 
-@author: dsant and hsilva
-"""
 import os
 import sys
 from Example import *

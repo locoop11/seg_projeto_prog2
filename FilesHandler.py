@@ -1,10 +1,38 @@
+# 2022-2023 Programacao 2 LTI
+# Grupo 027
+# 54961 Daniela Rodrigues
+# 60253 Hugo Silva
+
 from Candidate import *
 from kmeans import *
 
 class FilesHandler:
-    def writeOutputList(outputList, outputFile):
+    """
+    FilesHandler Class
 
-        #clusterMember e finalExemplar are two perfect form str to output
+    Handles file operations for clustering realities.
+
+    Methods:
+        writeOutputList(outputList, outputFile): Writes the output list to a file.
+        readTitlesFile(inputFileTitles): Reads the titles file and returns a dictionary of titles.
+        readCandidatesFile(inputFileCandidates, dictTitles): Reads the candidates file and returns lists of candidates and exemplars.
+        performClustering(listCandidates, listExamplars): Performs clustering on the given lists of candidates and exemplars.
+
+    Note:
+        This class assumes specific file formats and structures for titles and candidates files.
+    """
+    
+    def writeOutputList(outputList, outputFile):
+        """
+        Writes the output list to a file.
+
+        Args:
+            outputList (list): The output list to write.
+            outputFile (str): The path to the output file.
+
+        Returns:
+            None
+        """
         finalExemplarsClusters = []
         for i in outputList :    
             exemplar = i[0]
@@ -34,6 +62,15 @@ class FilesHandler:
 
     #Read Titles File
     def readTitlesFile(inputFileTitles):
+        """
+        Reads the titles file and returns a dictionary of titles.
+
+        Args:
+            inputFileTitles (str): The path to the titles file.
+
+        Returns:
+            dict: A dictionary of titles with their corresponding IDs.
+        """
         f = open(inputFileTitles, "r")
         lista = f.readlines()
         f.close()
@@ -51,6 +88,16 @@ class FilesHandler:
         
     #Read Candidates File
     def readCandidatesFile(inputFileCandidates, dictTitles):
+        """
+        Reads the candidates file and returns lists of candidates and exemplars.
+
+        Args:
+            inputFileCandidates (str): The path to the candidates file.
+            dictTitles (dict): A dictionary of titles with their corresponding IDs.
+
+        Returns:
+            tuple: A tuple containing the list of candidates and the list of exemplars.
+        """
         
         f = open(inputFileCandidates, "r")
         listC = f.readlines()
@@ -97,6 +144,16 @@ class FilesHandler:
 
 
     def performClustering(listCandidates, listExamplars, numClusters):
+        """
+        Performs clustering on the given lists of candidates and exemplars.
+
+        Args:
+            listCandidates (list): The list of candidates.
+            listExamplars (list): The list of exemplars.
+
+        Returns:
+            list: The output list containing tuples of exemplars and their corresponding clusters.
+        """
         clusters = []
         try :            
             if len(listExamplars) == 0:
