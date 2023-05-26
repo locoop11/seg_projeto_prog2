@@ -23,6 +23,7 @@ Se no ficheiro de input inputFile.txt forem indicados os centróides iniciais na
 
 # Entradas do programa
 O programa recebe dois ficheiros com uma estrutura interna para arrumação de informação similar à dos seguintes exemplos fragmentários:
+
 candidates.txt
 ```
 #Name and features:
