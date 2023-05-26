@@ -1,3 +1,8 @@
+# 2022-2023 Programacao 2 LTI
+# Grupo 027
+# 54961 Daniela Rodrigues
+# 60253 Hugo Silva
+
 from clusteringRealities import *
 class Tests :
     sampleTitlesFile = "./files/titles.txt"
