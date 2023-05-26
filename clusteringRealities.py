@@ -73,6 +73,20 @@ def main():
     processFiles(inputFileTitles, inputFileCandidates, numberOfClusters)
 
 def processFiles(inputFileTitles, inputFileCandidates, numberOfClusters):
+    
+    """
+    Processes the files and performs clustering.
+
+    Args:
+        inputFileTitles (str): The path to the titles file.
+        inputFileCandidates (str): The path to the candidates file.
+        numberOfClusters (int): The number of clusters.
+
+    Raises:
+        Exception: If the number of clusters is less than 1.
+
+    """
+    
     # print("Processing files...")
     # print("Number of clusters: " + str(numberOfClusters))
     # print("Titles file: " + inputFileTitles)

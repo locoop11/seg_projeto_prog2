@@ -8,6 +8,7 @@ class Tests :
     sampleTitlesFile = "./files/titles.txt"
     
     def testKDifferentFronCandidatesExemplars():
+        
         Tests.printTestName ("testKDifferentFronCandidatesExemplars", "Testing K different from candidates exemplars")
         testFile = "./files/test-KDifferentFromCandidatesExemplars.txt"
         try:

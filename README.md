@@ -1,3 +1,8 @@
+# 2022-2023 Programacao 2 LTI
+# Grupo 027
+# 54961 Daniela Rodrigues
+# 60253 Hugo Silva
+
 # Objetivo
 Com uma finalidade pedagógica, usando Python 3, neste projeto vai implementar o software clusteringRealities. É um software que permite obter o agrupamento de objetos de acordo com as suas características apresentadas num vetor.
 No contexto das atividades da nossa disciplina, uma outra finalidade pedagógica encontra-se no desafio de se desenvolver software a partir de uma especificação muito mais difusa e aberta do que aquelas que foram recebidas como pontos de partida em projetos anteriores pelos alunos da disciplina.
